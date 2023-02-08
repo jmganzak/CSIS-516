@@ -1,0 +1,19 @@
+#Takes x as border character and n as size of triangle
+def triangle(x,n):
+    counter = 0 #Serves as counter to create right side of triangle
+    for i in range(n): #loop through n
+        if i == n-1:
+            print((x+' ')*n) #Bottom row line
+        elif i!= 0:
+            print(' ' * ((n-i)-1) + x,(' '* ((i-2)+counter)+x)) #Create left and 
+right lines
+        else:
+            print(' '*(n-1) + x) #First border character
+        counter+=1 #increment 
+#Grab user input
+x = input("Enter a border character: ")
+n = int(input("Enter size of triangle: "))
+print()
+triangle(x,n)
+print()
+print('Triangle created')
