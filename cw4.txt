@@ -1,0 +1,31 @@
+#input file
+file = 'twitter_data.txt'
+#fucntion for grabbing hashtags from strings
+def grabHashTag(s):
+    words = s.split()
+    hashtags = []
+    for word in words: #loop through all the words.
+        if word.startswith('#'): #find words that start with #
+            hashtags.append(word.lower())
+    return hashtags
+#dictionary of hashtags
+hashtags = {}
+#open file and read and make lowercase
+with open('twitter_data.txt', 'r', encoding='utf8') as f:
+    fileContents = f.read().lower()
+for line in fileContents.split('\n'):
+#this loop reads the lines of the file and splits them to extract the hashtags from
+each line
+    hashtagLine = grabHashTag(line)
+    #grab current hashtag from line
+    for hashtag in hashtagLine:
+        if hashtag in hashtags:
+            hashtags[hashtag] += 1 #checks if hashtag is already in dictionary and 
+add 1 if so
+        else:
+            hashtags[hashtag] = 1
+#grab top hashtags that appear the most
+topHash = sorted(hashtags, key=hashtags.get, reverse=True)[:5]
+#print most frequent hashtags
+for hashtag in topHash:
+    print(f'{hashtag}: {hashtags[hashtag]}')
