@@ -203,3 +203,4 @@ movePac(grid,pacman_dir,pacman_row,pacman_col,int(command))
     else:
         print('Invalid input')   
     printGrid(grid,show_path)
+#
