@@ -29,3 +29,4 @@ topHash = sorted(hashtags, key=hashtags.get, reverse=True)[:5]
 #print most frequent hashtags
 for hashtag in topHash:
     print(f'{hashtag}: {hashtags[hashtag]}')
+#
